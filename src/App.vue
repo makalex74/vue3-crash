@@ -1,32 +1,46 @@
 <template>
-    <div>
-        <div>
-            <button v-on:click="addLike">Like</button>
-            <button v-on:click="addDislike">Dislike</button>
-        </div>
-        <div>Колич-во лайков: <strong>{{ likes }}</strong></div>
-        <div>Колич-во дизлайков: <strong>{{ dislikes }}</strong></div>
+    <div class="app">
+        <post-form  @create="createPost"/>
+        <post-list :posts="posts"/>
     </div>
 </template>
   
 <script>
+import PostForm from './components/PostForm'
+import PostList from '@/components/PostList'
 export default {
+    components: {
+        'post-form': PostForm, 
+        'post-list': PostList
+    }, 
     data() {
         return {
-            likes: 0,
-            dislikes: 0,
+            posts: [
+                { id: 1, title: 'JavaScript', body: 'Описание поста' },
+                { id: 2, title: 'JavaScript 2', body: 'Описание поста 2' },
+                { id: 3, title: 'JavaScript 3', body: 'Описание поста 3' },
+                { id: 4, title: 'JavaScript 4', body: 'Описание поста 4' },
+            ],
         }
     },
     methods: {
-        addLike(){
-            this.likes ++
+        createPost(post) {
+            this.posts.push(post);
         },
-        addDislike(){
-            this.dislikes ++
-        }
     }
 }
 </script>
   
 <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.app {
+    padding: 20px;
+}
+
+
 </style>
