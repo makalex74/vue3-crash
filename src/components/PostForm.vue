@@ -8,9 +8,7 @@
 </template>
 
 <script>
-import MyButton from "@/components/UI/MyButton";
 export default {
-    components: {'my-button': MyButton},
     data() {
         return {
             post: {
