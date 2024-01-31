@@ -11,7 +11,7 @@ export default {
         }
     },
     mounted() {
-        console.log('mixin mounted');
+        //console.log('mixin mounted');
     }
 
 }
